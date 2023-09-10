@@ -5,8 +5,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Promise初始结构的构建</title>
+  <script src="./promise.js"></script>
 </head>
 <body>
-  
+  <script>
+    let p = new Promise((resolve, reject) => {
+      // resolve('ok');
+      reject('no');
+    });
+    console.log(p)
+    // p.then((value => {
+    //   console.log(value);
+    // }), error => {
+    //   console.log(error);
+    // })
+  </script>
 </body>
 </html>
