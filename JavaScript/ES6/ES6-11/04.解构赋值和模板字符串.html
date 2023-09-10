@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>解构赋值</title>
+    <script>
+        /*
+        ES6 允许按照一定模式从数组和对象中提取值，对变量进行赋值
+        这个被称为解析赋值
+        */
+        //1.数组的结构
+        // const F4 = ['小沈阳','刘能','赵四','宋小宝'];
+        // let [xiao, liu, zhao, song] = F4;
+        // console.log(xiao);
+        // console.log(liu);
+        // console.log(zhao);
+        // console.log(song);
+        
+        //2.对象的解构
+        // const zhao = {
+        //     name : '赵本山',
+        //     age : 18,
+        //     xiaopin : function(){
+        //         console.log("我可以演小品");
+        //     }
+        // }
+        //名字要相同
+        // let {name, age, xiaopin} = zhao;
+        // console.log(name);
+        // console.log(xiaopin);
+        //也可以调用
+        // xiaopin();
+
+        //zhao.xiaopin();
+
+        //ES6引入新的声明字符串的方式 【``】 '' ""
+        //1.声明
+        // let str = `我也是一个字符串哦`;
+        // console.log(str, typeof str);
+
+        //2.内容中可以直接出现转行符
+        // let str1 = `<ul>
+        //             <li>你好</li>
+        //             </ul>`;
+        //3.变量拼接
+        // let love = '任嘉伦';
+        // let out = `${love}是我最喜欢的演员`;
+        // console.log(out);
+
+        /*ES6允许在大括号里面。直接写入变量和函数，作为对象的属性和方法*/
+        let name = 'jmw';
+        let change =function(){
+            console.log('我们可以改变你');
+        }
+
+        const school = {
+            name,
+            change,
+            improve(){
+                console.log("我们可以提高你的技能。");
+            }
+        }
+        console.log(school);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
