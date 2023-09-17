@@ -14,5 +14,13 @@
 //apply 第一个参数是对象，第二个参数是max函数所需要的参数
 console.log(Math.max.apply("", [1,2,3]));
 console.log(Math.max.call('', 1,2,3));
-let fun = Math.max.bind("",1,2,3,4);
-console.log(fun())
+// let fun = Math.max.bind("",1,2,3,4);
+// console.log(fun());
+
+// 简单实现一个bind函数
+Function.prototype.bind = function(ctx) {
+  var fn = this;
+  return function() {
+      fn.apply(ctx, arguments);
+  };
+};
