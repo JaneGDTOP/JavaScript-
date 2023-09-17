@@ -6,7 +6,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>date</title>
 </head>
+
 <body>
-  <script src="./2_instanceof实现.js"></script>
+
+  <!-- <script src="./2_instanceof实现.js"></script> -->
+
+  <script>
+    let btn = document.getElementById('myBtn');
+    console.log(btn)
+    btn.addEventListener("click", function() {
+      console.log("点击了button");
+    })
+    // script要写在下面，因为var有变量提升
+    // document.getElementById("myBtn").addEventListener("click", function()
+    // {
+    //   document.getElementById("demo").innerHTML = "Hello World";
+    // });
+  </script>
+  <button id="myBtn">点我</button>
+  <p id="demo"></p>
 </body>
 </html>
