@@ -23,13 +23,14 @@ function Promise(executor) {
     }
 
         // reject 接收参数是结果信息
-        function reject(data) {
-          // 1. 修改对象的状态 (PromiseState)
-          self.PromiseState = 'rejected';
-          // 2. 设置对象的结果值 (PromiseResult)
-          self.PromiseResult = data;
-      }
+    function reject(data) {
+      // 1. 修改对象的状态 (PromiseState)
+      self.PromiseState = 'rejected';
+      // 2. 设置对象的结果值 (PromiseResult)
+      self.PromiseResult = data;
+    
+    }
 
       // 同步调用执行器函数
-      executor(resolve, reject);
+    executor(resolve, reject);
 }
