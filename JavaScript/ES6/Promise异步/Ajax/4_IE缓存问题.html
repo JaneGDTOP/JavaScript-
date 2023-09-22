@@ -18,6 +18,12 @@
     <div id="result"></div>
 
     <script>
+        /**
+         * 低版本IE缓存问题？
+         * Ajax有严重的请求缓存问题。即在请求地址不发生变化的情况下，只有第一次请求会真正发送到服务器端
+         * 后续的请求都会从浏览器的缓存中获取结果，即使服务器的数据更新了，客户端依旧拿到的是缓存中的旧数据。
+         * 解决方案：即在请求地址不发生变化的情况下，只有第一次请求会真正发送到服务器端
+        */
 
         const result = document.getElementById("result");
         const btn = document.getElementsByTagName('button')[0];
@@ -25,6 +31,7 @@
         btn.addEventListener('click',function(){
             
             const xhr = new XMLHttpRequest();
+            // 加入一个一直会变化的时间参数，就会一直发送请求，而不用缓存
             xhr.open('GET','http://127.0.0.1:8000/ie?t='+Date.now());
             xhr.send();
             xhr.onreadystatechange = function(){
