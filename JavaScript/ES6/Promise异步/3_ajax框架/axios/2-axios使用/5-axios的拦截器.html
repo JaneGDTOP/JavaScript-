@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <title>5-axios的拦截器</title>
+</head>
+<body>
+    <script>
+        // 添加请求拦截器
+        axios.interceptors.request.use(function (config) {
+            // 在发送请求之前做些什么'
+            console.log('请求拦截器 成功');
+            throw '参数出了问题';
+        }, function (error) {
+            // 对请求错误做些什么
+            console.log('请求拦截器 失败');
+            return Promise.reject(error);
+        });
+
+        // 添加响应拦截器
+        axios.interceptors.response.use(function (response) {
+            // 对响应数据做点什么
+            console.log('响应拦截器 成功');
+            return response;
+        }, function (error) {
+            // 对响应错误做点什么
+            console.log('响应拦截器 失败');
+            return Promise.reject(error);
+        });
+
+        //发送请求
+        axios({
+            method:'GET',
+            url:'http://localhost:3000/posts'
+        }).then(response=>{
+            console.log('回应');
+            console.log(response);
+        })
+    </script>
+</body>
+</html>
