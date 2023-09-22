@@ -14,7 +14,7 @@ function myinstanceof(left, right) {
     left = left.__proto__;
     // 判断对象的（隐式）原型是否等于构造函数的显式原型
     while(true) {
-      if (left === null) {
+      if (left === null || left === undefined) {
         return false;
       }
       if (left === rp) {
